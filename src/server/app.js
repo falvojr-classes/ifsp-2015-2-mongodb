@@ -11,7 +11,7 @@ var cors = require('cors');
 var serveFavicon = require('serve-favicon');
 var morgan = require('morgan');
 
-var environment = process.env.NODE_ENV || "dev";
+var environment = process.env.NODE_ENV || "development";
 var port = process.env.PORT || 7200;
 
 app.use(bodyParser.urlencoded({extended: true}));   // parse application/x-www-form-urlencoded
@@ -20,6 +20,10 @@ app.use(compress());                                // compress response data wi
 app.use(morgan(environment));                       // create "middleware" using combined format to STDOUT
 app.use(serveFavicon(__dirname + '/favicon.ico'));  // configure favicon file
 app.use(cors());                                    // enable ALL CORS requests
+
+console.log('Servindo ' + './src/client/ e ./');
+app.use('/', express.static('./src/client/'));
+app.use('/', express.static('./'));
 
 app.get('/ping', function (req, res, next) {
     console.log(req.body);
