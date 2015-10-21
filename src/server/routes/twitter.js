@@ -13,7 +13,7 @@ module.exports = function(app) {
 
     var T = new Twit(oAuthConfig);
 
-    // filter the public stream by english tweets containing `#apple`
+    // filter the public stream by all tweets containing #SNCT2015
     var stream = T.stream('statuses/filter', { track: '#SNCT2015' });
 
     stream.on('tweet', function (tweet) {
