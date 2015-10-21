@@ -1,0 +1,22 @@
+{
+  "name": "ext-mongodb-geo",
+  "version": "1.0.0",
+  "description": "Palestra realizada na Semana Nacional de Ciência e Tecnologia (SNCT) do IFSP de São Carlos",
+  "dependencies": {
+    "angular": "~1.4.7",
+    "socket.io-client": "~1.3.7"
+  },
+  "authors": [
+    "Venilton FalvoJr <falvojr@gmail.com>",
+    "Guilherme Bueno <guilherme.bueno@live.com>",
+    "Renan Johannsen de Paula <renanjohannsen@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
