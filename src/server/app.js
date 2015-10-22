@@ -22,10 +22,13 @@ app.use(morgan("combined"));                        // create "middleware" using
 app.use(serveFavicon(__dirname + '/favicon.ico'));  // configure favicon file
 app.use(cors());                                    // enable ALL CORS requests
 
-//
+// call function for creating of the schema
+require('./data/model.js')();
+
+// call function for configure Twitter listener (#GeoSNCT2015)
 require('./routes/twitter')();
 
-var routes;
+var routes = require('./routes/participant')(app);
 
 
 console.log('Servindo ' + './src/client/ e ./');

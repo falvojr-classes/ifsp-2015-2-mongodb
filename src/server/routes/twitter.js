@@ -1,11 +1,10 @@
 /**
  * Created by falvojr on 21/10/15.
  */
+'use strict';
+
 var constants = require('../comum/constants')
     , Twit = require('twit');
-
-// call function for creating of the schema
-require('../data/model.js')();
 
 var Participant = db.model('Participant');
 
@@ -24,10 +23,10 @@ module.exports = function() {
                 name: tweet.user.name,
                 twitter: tweet.user.screen_name,
                 loc: geoJSON
-            }
+            };
             Participant.create(participant);
         } else {
-            console.log(tweet.user.screen_name + " not turned on the exact localization.");
+            console.log("@" + tweet.user.screen_name + " not turned on the exact localization.");
         }
     })
 };

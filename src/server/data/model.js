@@ -1,11 +1,12 @@
 /**
  * Created by falvojr on 21/10/15.
  */
+'use strict';
 
 var Schema = require('mongoose').Schema;
 
 module.exports = function() {
-    var ParticipantObject = new Schema({
+    var ParticipantSchema = new Schema({
         name: { type: String, required: true },
         twitter: { type: String, required: true },
         loc: {
@@ -13,9 +14,17 @@ module.exports = function() {
             coordinates: []
         }
     });
-    ParticipantObject.index({ loc : '2dsphere' });
+    ParticipantSchema.index({ loc : '2dsphere' });
 
-    db.model('Participant', ParticipantObject);
+    // define a method to find the closest participant
+    ParticipantSchema.methods.findClosest = function(callback) {
+        return this.model('Participant').find({
+            loc : { $near : this.loc }, // filter by near location
+            name : { $ne : this.name }  // filter by not equal related participant name
+        }).limit(1).exec(callback);
+    };
+
+    db.model('Participant', ParticipantSchema);
 };
 
 db.on('connected', function() {

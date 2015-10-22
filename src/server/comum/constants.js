@@ -1,7 +1,7 @@
 /**
  * Created by falvojr on 21/10/15.
  */
-'use strict'
+'use strict';
 
 module.exports = Object.freeze({
     DB_URI: 'mongodb://ds041924.mongolab.com:41924/ext-mongodb-geo',
