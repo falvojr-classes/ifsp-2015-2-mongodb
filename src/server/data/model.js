@@ -8,7 +8,7 @@ var Schema = require('mongoose').Schema;
 module.exports = function() {
     var ParticipantSchema = new Schema({
         name: { type: String, required: true },
-        message: { type: String, required: true}, 
+        message: { type: String, required: true},
         twitter: { type: String, required: true },
         loc: {
             type: { type: String },
@@ -20,7 +20,7 @@ module.exports = function() {
     // define a method to find the closest participant
     ParticipantSchema.methods.findClosest = function(callback) {
         return this.model('Participant').find({
-            loc : { $near : this.loc }, // filter by near location
+            loc : { $near : this.loc}, // filter by near location
             twitter : { $ne : this.twitter }  // filter by not equal related participant name
         }).limit(1).exec(callback);
     };
