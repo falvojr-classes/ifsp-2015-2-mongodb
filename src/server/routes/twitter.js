@@ -26,7 +26,7 @@ module.exports = function() {
                 loc: geoJSON
             };
             Participant.create(participant);
-            console.log("@" + tweet.user.screen_name + " : " + tweet.message);
+            console.log("[INFO] @" + tweet.user.screen_name + " : " + tweet.text);
         } else {
             console.log("[ERRO] @" + tweet.user.screen_name + " not turned on the exact localization.");
         }
