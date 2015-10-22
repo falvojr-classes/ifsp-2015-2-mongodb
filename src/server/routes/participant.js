@@ -41,7 +41,6 @@ module.exports = function (app) {
                 res.send(participants);
             } else {
                 var participant = participants[0];
-                console.log(participant);
                 participant.findClosest(function (err, closest) {
                     if (err) {
                         console.error(err);
