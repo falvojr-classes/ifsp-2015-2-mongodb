@@ -8,6 +8,7 @@ var Schema = require('mongoose').Schema;
 module.exports = function() {
     var ParticipantSchema = new Schema({
         name: { type: String, required: true },
+        message: { type: String, required: true}, 
         twitter: { type: String, required: true },
         loc: {
             type: { type: String },

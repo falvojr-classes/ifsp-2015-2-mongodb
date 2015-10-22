@@ -21,12 +21,14 @@ module.exports = function() {
         if (geoJSON) {
             var participant = {
                 name: tweet.user.name,
+                message: tweet.text,
                 twitter: tweet.user.screen_name,
                 loc: geoJSON
             };
             Participant.create(participant);
+            console.log("@" + tweet.user.screen_name + " : " + tweet.message);
         } else {
-            console.log("@" + tweet.user.screen_name + " not turned on the exact localization.");
+            console.log("[ERRO] @" + tweet.user.screen_name + " not turned on the exact localization.");
         }
     })
 };
