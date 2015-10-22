@@ -14,7 +14,7 @@ module.exports = function() {
     var T = new Twit(constants.TWITTER_OAUTH_CREDENTIAL);
 
     // filter the public stream by all tweets containing #SNCT2015
-    var stream = T.stream('statuses/filter', { track: '#SNCT2015' });
+    var stream = T.stream('statuses/filter', { track: '#GeoSNCT2015' });
 
     stream.on('tweet', function (tweet) {
         // the inner coordinates array is formatted as geoJSON (longitude first, then latitude).
