@@ -20,7 +20,7 @@ module.exports = function() {
     ParticipantSchema.methods.findClosest = function(callback) {
         return this.model('Participant').find({
             loc : { $near : this.loc }, // filter by near location
-            name : { $ne : this.name }  // filter by not equal related participant name
+            twitter : { $ne : this.twitter }  // filter by not equal related participant name
         }).limit(1).exec(callback);
     };
 
